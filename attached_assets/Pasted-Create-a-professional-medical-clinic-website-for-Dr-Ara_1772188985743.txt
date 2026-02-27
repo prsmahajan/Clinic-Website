@@ -1,0 +1,162 @@
+Create a professional medical clinic website for:
+
+Dr. Arafath Ahmed Khan
+Family Physician & Pediatrician
+Bangalore, India
+
+The website should be clean, trustworthy, family-friendly, and medical-professional in design (white, light blue, soft green theme).
+
+📌 Include These Sections:
+1️⃣ Hero Section
+
+Doctor’s Name: Dr. Arafath Ahmed Khan
+
+Title: Trusted Family Physician & Child Specialist
+
+Tagline: “Compassionate Care for Your Entire Family”
+
+CTA Buttons:
+
+Book Appointment
+
+Call Now
+
+2️⃣ About the Doctor
+
+Create a professional bio using review insights:
+
+Dr. Arafath Ahmed Khan is a highly experienced family physician and pediatric specialist with over 15+ years of trusted service. Known for precise diagnosis, compassionate care, and strong patient relationships, he has been a trusted family doctor for generations. Many families rely on him for children’s health, COVID care, dengue recovery, diabetes management, and general medical consultation.
+
+Patients appreciate his calm nature, clear explanations, and accurate treatment approach.
+
+3️⃣ Services Section
+
+Include:
+
+Family Medicine
+
+Pediatric Care
+
+Fever & Infection Treatment
+
+COVID Consultation & Recovery Care
+
+Diabetes & Hypertension Management
+
+General Health Checkups
+
+Emergency Consultation (Clinic Hours Only)
+
+4️⃣ Google Reviews Section
+
+Create a testimonial slider using these summarized real reviews:
+
+⭐️⭐️⭐️⭐️⭐️
+"Dr. Arafath is an angel for kids. Very calm, humble and accurate in diagnosis."
+
+⭐️⭐️⭐️⭐️⭐️
+"Saved my family during COVID. Extremely compassionate and available whenever needed."
+
+⭐️⭐️⭐️⭐️⭐️
+"Best family doctor for over 15 years. We trust him completely."
+
+⭐️⭐️⭐️⭐️⭐️
+"Precise diagnosis and very professional treatment approach."
+
+⭐️⭐️⭐️⭐️
+"Doctor is excellent, but waiting time can be long."
+
+Also include a neutral transparency note:
+“Some patients have mentioned longer waiting times during peak hours. We continuously work to improve patient experience.”
+
+5️⃣ Why Choose Us Section
+
+15+ Years Experience
+
+Trusted by Generations of Families
+
+Accurate Diagnosis
+
+Compassionate & Ethical Care
+
+Strong Pediatric Expertise
+
+COVID Frontline Experience
+
+6️⃣ Clinic Information Section
+
+Add placeholder details for:
+
+Clinic Address: (Add Full Bangalore Address Here)
+
+Phone Number: (Add Contact Number)
+
+Timings: (Add Clinic Hours)
+
+Appointment Note: Appointments confirmed at reception
+
+Include Google Maps embed option.
+
+7️⃣ Appointment Section
+
+Simple booking form:
+
+Name
+
+Phone
+
+Patient Age
+
+Preferred Time
+
+Message
+
+8️⃣ FAQ Section
+
+Include:
+
+Do I need an appointment?
+
+What are clinic timings?
+
+Is emergency care available?
+
+How long is the waiting time?
+
+Do you treat children?
+
+9️⃣ Footer
+
+Contact Info
+
+Google Reviews Link
+
+Clinic Timings
+
+Copyright
+
+Privacy Policy
+
+🎨 Design Instructions
+
+Clean medical layout
+
+Soft colors (blue/green/white)
+
+Family-friendly imagery
+
+Doctor consultation images
+
+Google rating badge display
+
+Mobile responsive
+
+Fast loading
+
+SEO optimized for:
+
+Family Doctor in Bangalore
+
+Pediatrician in Bangalore
+
+Best Child Specialist Near Me
