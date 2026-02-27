@@ -1,12 +1,12 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import {
   Heart, Stethoscope, Baby, Thermometer, Shield, Activity,
-  ClipboardCheck, Phone, MapPin, Clock, Star, ChevronDown,
-  ChevronLeft, ChevronRight, Sun, Moon, Menu, X, Award,
+  ClipboardCheck, Phone, MapPin, Clock, Star,
+  Sun, Moon, Menu, X, Award,
   Users, Target, HeartHandshake, Syringe, AlertCircle, CalendarCheck
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -448,16 +448,7 @@ function ServicesSection() {
 }
 
 function ReviewsSection() {
-  const [current, setCurrent] = useState(0);
-  const total = reviews.length;
-
-  const next = useCallback(() => setCurrent((c) => (c + 1) % total), [total]);
-  const prev = useCallback(() => setCurrent((c) => (c - 1 + total) % total), [total]);
-
-  useEffect(() => {
-    const timer = setInterval(next, 5000);
-    return () => clearInterval(timer);
-  }, [next]);
+  const marqueeItems = [...reviews, ...reviews];
 
   return (
     <section id="reviews" className="py-20 bg-card/50 dark:bg-card/30" data-testid="section-reviews">
@@ -484,75 +475,56 @@ function ReviewsSection() {
             <span className="text-sm text-muted-foreground">Based on Google Reviews</span>
           </motion.div>
         </motion.div>
+      </div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-        >
-          <div className="relative max-w-3xl mx-auto">
-            <div className="relative min-h-[200px]">
-              {reviews.map((review, i) => (
-                <div
-                  key={i}
-                  className={`absolute inset-0 transition-all duration-500 ${
-                    i === current ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8 pointer-events-none"
-                  }`}
-                >
-                  <Card className="p-8 sm:p-10 text-center" data-testid={`card-review-${i}`}>
-                    <div className="flex justify-center gap-1 mb-4">
-                      {[...Array(5)].map((_, j) => (
-                        <Star
-                          key={j}
-                          className={`w-5 h-5 ${
-                            j < review.rating
-                              ? "fill-amber-400 text-amber-400"
-                              : "text-muted-foreground/30"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                    <p className="text-lg sm:text-xl text-foreground italic leading-relaxed">
-                      "{review.text}"
-                    </p>
-                    <p className="mt-4 text-sm text-muted-foreground font-medium">
-                      — {review.author}
-                    </p>
-                  </Card>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+      >
+        <div className="relative w-full overflow-hidden">
+          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-card/80 dark:from-card/60 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-card/80 dark:from-card/60 to-transparent z-10 pointer-events-none" />
+
+          <div className="flex animate-marquee gap-5" style={{ width: "max-content" }}>
+            {marqueeItems.map((review, i) => (
+              <Card
+                key={i}
+                className="w-[320px] sm:w-[380px] flex-shrink-0 p-6 sm:p-7"
+                data-testid={`card-review-${i % reviews.length}`}
+              >
+                <div className="flex gap-0.5 mb-3">
+                  {[...Array(5)].map((_, j) => (
+                    <Star
+                      key={j}
+                      className={`w-4 h-4 ${
+                        j < review.rating
+                          ? "fill-amber-400 text-amber-400"
+                          : "text-muted-foreground/30"
+                      }`}
+                    />
+                  ))}
                 </div>
-              ))}
-            </div>
-
-            <div className="flex items-center justify-center gap-4 mt-8">
-              <Button size="icon" variant="outline" onClick={prev} aria-label="Previous review" data-testid="button-review-prev">
-                <ChevronLeft className="w-4 h-4" />
-              </Button>
-              <div className="flex gap-2">
-                {reviews.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrent(i)}
-                    className={`w-2.5 h-2.5 rounded-full transition-all ${
-                      i === current ? "bg-primary w-6" : "bg-muted-foreground/30"
-                    }`}
-                    data-testid={`button-review-dot-${i}`}
-                  />
-                ))}
-              </div>
-              <Button size="icon" variant="outline" onClick={next} aria-label="Next review" data-testid="button-review-next">
-                <ChevronRight className="w-4 h-4" />
-              </Button>
-            </div>
+                <p className="text-sm sm:text-base text-foreground italic leading-relaxed">
+                  "{review.text}"
+                </p>
+                <p className="mt-3 text-xs text-muted-foreground font-medium">
+                  — {review.author}
+                </p>
+              </Card>
+            ))}
           </div>
+        </div>
 
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mt-8 text-center">
             <p className="text-xs text-muted-foreground italic max-w-lg mx-auto bg-muted/50 dark:bg-muted/30 rounded-lg px-4 py-3">
               Some patients have mentioned longer waiting times during peak hours. We continuously work to improve patient experience.
             </p>
           </div>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </section>
   );
 }
