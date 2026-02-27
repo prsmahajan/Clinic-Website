@@ -223,7 +223,7 @@ function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-[85vh] flex items-center bg-gradient-to-br from-primary/5 via-background to-accent/30 dark:from-primary/10 dark:via-background dark:to-accent/20 pt-16"
+      className="relative min-h-[75vh] sm:min-h-[85vh] flex items-center bg-gradient-to-br from-primary/5 via-background to-accent/30 dark:from-primary/10 dark:via-background dark:to-accent/20 pt-16"
       data-testid="section-hero"
     >
       <div className="absolute inset-0 overflow-hidden">
@@ -251,7 +251,7 @@ function HeroSection() {
 
             <motion.h1
               variants={fadeInUp}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight tracking-tight"
+              className="text-2xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight tracking-tight"
             >
               Trusted Family Physician
               <br />
@@ -377,21 +377,21 @@ function AboutSection() {
                 Many families rely on him for children's health, COVID care, dengue recovery, diabetes management, and general medical consultation. Patients appreciate his calm nature, clear explanations, and accurate treatment approach.
               </p>
             </div>
-            <div className="mt-8 grid grid-cols-3 gap-4">
-              <div className="text-center p-4 rounded-lg bg-background dark:bg-muted/30">
-                <p className="text-2xl font-bold text-primary" data-testid="text-experience">15+</p>
-                <p className="text-xs text-muted-foreground mt-1">Years Experience</p>
+            <div className="mt-8 grid grid-cols-3 gap-2 sm:gap-4">
+              <div className="text-center p-3 sm:p-4 rounded-lg bg-background dark:bg-muted/30">
+                <p className="text-xl sm:text-2xl font-bold text-primary" data-testid="text-experience">15+</p>
+                <p className="text-[10px] sm:text-xs text-muted-foreground mt-1">Years Exp.</p>
               </div>
-              <div className="text-center p-4 rounded-lg bg-background dark:bg-muted/30">
-                <p className="text-2xl font-bold text-primary" data-testid="text-families">1000+</p>
-                <p className="text-xs text-muted-foreground mt-1">Families Served</p>
+              <div className="text-center p-3 sm:p-4 rounded-lg bg-background dark:bg-muted/30">
+                <p className="text-xl sm:text-2xl font-bold text-primary" data-testid="text-families">1000+</p>
+                <p className="text-[10px] sm:text-xs text-muted-foreground mt-1">Families</p>
               </div>
-              <div className="text-center p-4 rounded-lg bg-background dark:bg-muted/30">
+              <div className="text-center p-3 sm:p-4 rounded-lg bg-background dark:bg-muted/30">
                 <div className="flex items-center justify-center gap-0.5" data-testid="text-rating">
-                  <Star className="w-5 h-5 fill-amber-400 text-amber-400" />
-                  <span className="text-2xl font-bold text-primary">4.8</span>
+                  <Star className="w-4 h-4 sm:w-5 sm:h-5 fill-amber-400 text-amber-400" />
+                  <span className="text-xl sm:text-2xl font-bold text-primary">4.8</span>
                 </div>
-                <p className="text-xs text-muted-foreground mt-1">Google Rating</p>
+                <p className="text-[10px] sm:text-xs text-muted-foreground mt-1">Rating</p>
               </div>
             </div>
           </motion.div>
@@ -643,24 +643,24 @@ function ClinicInfoSection() {
                   </div>
                   <div className="flex-1">
                     <h3 className="font-semibold text-foreground mb-3">Clinic Hours</h3>
-                    <div className="space-y-2">
+                    <div className="space-y-1.5">
                       {clinicHours.map((item, i) => (
                         <div
                           key={i}
-                          className={`flex items-center justify-between text-sm py-1.5 px-3 rounded-md ${
+                          className={`grid grid-cols-[100px_1fr] sm:grid-cols-[120px_1fr] items-start text-sm py-2 px-3 rounded-md gap-2 ${
                             item.day === today
                               ? "bg-primary/10 dark:bg-primary/15 font-medium"
                               : ""
                           } ${item.hours === "Closed" ? "text-muted-foreground" : "text-foreground"}`}
                           data-testid={`text-hours-${item.day.toLowerCase()}`}
                         >
-                          <span className={item.day === today ? "text-primary font-semibold" : ""}>
+                          <span className={`${item.day === today ? "text-primary font-semibold" : ""} flex items-center flex-wrap`}>
                             {item.day}
                             {item.day === today && (
-                              <span className="ml-2 text-[10px] uppercase tracking-wider text-primary">Today</span>
+                              <span className="ml-1 text-[10px] uppercase tracking-wider text-primary">Today</span>
                             )}
                           </span>
-                          <span className="text-muted-foreground">{item.hours}</span>
+                          <span className="text-muted-foreground text-right text-xs sm:text-sm">{item.hours}</span>
                         </div>
                       ))}
                     </div>
@@ -1032,14 +1032,16 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background transition-colors duration-300">
       <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <ReviewsSection />
-      <WhyChooseSection />
-      <ClinicInfoSection />
-      <AppointmentSection />
-      <FAQSection />
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <ServicesSection />
+        <ReviewsSection />
+        <WhyChooseSection />
+        <ClinicInfoSection />
+        <AppointmentSection />
+        <FAQSection />
+      </main>
       <Footer />
     </div>
   );
