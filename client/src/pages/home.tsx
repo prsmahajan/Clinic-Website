@@ -135,7 +135,7 @@ function Navbar() {
               <Stethoscope className="w-5 h-5 text-primary-foreground" />
             </div>
             <span className="font-semibold text-sm sm:text-base text-foreground">
-              Dr. Arafath Khan
+              Park View Clinic
             </span>
           </button>
 
@@ -251,16 +251,20 @@ function HeroSection() {
               variants={fadeInUp}
               className="text-2xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight tracking-tight"
             >
-              Trusted Family Physician
-              <br />
-              <span className="text-primary">&amp; Child Specialist</span>
+              Park View Clinic
             </motion.h1>
 
             <motion.p
               variants={fadeInUp}
-              className="mt-3 text-lg sm:text-xl text-primary/80 dark:text-primary/70 font-medium"
+              className="mt-2 text-lg sm:text-xl text-primary font-semibold"
             >
               Dr. Arafath Ahmed Khan
+            </motion.p>
+            <motion.p
+              variants={fadeInUp}
+              className="text-sm sm:text-base text-muted-foreground"
+            >
+              Family Physician &amp; Child Specialist
             </motion.p>
 
             <motion.p
@@ -954,10 +958,10 @@ function Footer() {
               <div className="w-9 h-9 rounded-md bg-primary flex items-center justify-center">
                 <Stethoscope className="w-5 h-5 text-primary-foreground" />
               </div>
-              <span className="font-semibold text-foreground">Dr. Arafath Khan</span>
+              <span className="font-semibold text-foreground">Park View Clinic</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Trusted Family Physician &amp; Child Specialist providing compassionate healthcare in Bangalore for over 15 years.
+              Dr. Arafath Ahmed Khan — Trusted Family Physician &amp; Child Specialist providing compassionate healthcare in Bangalore for over 15 years.
             </p>
           </div>
 
@@ -1015,7 +1019,7 @@ function Footer() {
 
         <div className="mt-10 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} Dr. Arafath Ahmed Khan. All rights reserved.
+            &copy; {new Date().getFullYear()} Park View Clinic — Dr. Arafath Ahmed Khan. All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-xs text-muted-foreground">
             <button data-testid="link-privacy-policy">Privacy Policy</button>
