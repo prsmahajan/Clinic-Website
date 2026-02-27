@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import {
   Heart, Stethoscope, Baby, Thermometer, Shield, Activity,
@@ -15,7 +14,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useTheme } from "@/components/theme-provider";
-import { apiRequest } from "@/lib/queryClient";
 import { appointmentSchema, type AppointmentRequest } from "@shared/schema";
 import {
   Accordion,
@@ -710,29 +708,33 @@ function AppointmentSection() {
     },
   });
 
-  const mutation = useMutation({
-    mutationFn: async (data: AppointmentRequest) => {
-      const res = await apiRequest("POST", "/api/appointments", data);
-      return res.json();
-    },
-    onSuccess: () => {
-      toast({
-        title: "Appointment Request Submitted",
-        description: "We will confirm your appointment at the reception. Thank you!",
-      });
-      form.reset();
-    },
-    onError: () => {
-      toast({
-        title: "Error",
-        description: "Failed to submit appointment. Please call us directly.",
-        variant: "destructive",
-      });
-    },
-  });
+  const timeLabels: Record<string, string> = {
+    morning: "Morning (11 AM - 2 PM)",
+    evening: "Evening (6 PM - 8 PM)",
+    saturday: "Saturday (11 AM - 3:30 PM)",
+  };
 
   const onSubmit = (data: AppointmentRequest) => {
-    mutation.mutate(data);
+    const lines = [
+      `*New Appointment Request*`,
+      ``,
+      `*Name:* ${data.name}`,
+      `*Phone:* ${data.phone}`,
+      `*Patient Age:* ${data.age}`,
+      `*Preferred Time:* ${timeLabels[data.preferredTime] || data.preferredTime}`,
+    ];
+    if (data.message) {
+      lines.push(`*Message:* ${data.message}`);
+    }
+    const text = encodeURIComponent(lines.join("\n"));
+    const whatsappUrl = `https://wa.me/919041162603?text=${text}`;
+    window.open(whatsappUrl, "_blank");
+
+    toast({
+      title: "Redirecting to WhatsApp",
+      description: "Please send the pre-filled message to complete your appointment request.",
+    });
+    form.reset();
   };
 
   return (
@@ -752,7 +754,7 @@ function AppointmentSection() {
               Schedule Your Visit
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-muted-foreground mb-8 max-w-md">
-              Fill out the form and we'll get back to you to confirm your appointment. You can also call us directly for immediate assistance.
+              Fill out the form and send it directly via WhatsApp for quick confirmation. You can also call us directly for immediate assistance.
             </motion.p>
 
             <motion.div variants={fadeInUp} className="space-y-4">
@@ -880,10 +882,9 @@ function AppointmentSection() {
                     type="submit"
                     className="w-full"
                     size="lg"
-                    disabled={mutation.isPending}
                     data-testid="button-submit-appointment"
                   >
-                    {mutation.isPending ? "Submitting..." : "Request Appointment"}
+                    Send via WhatsApp
                   </Button>
                 </form>
               </Form>
