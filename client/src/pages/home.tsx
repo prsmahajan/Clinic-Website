@@ -637,33 +637,31 @@ function ClinicInfoSection() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-5 h-5 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-foreground mb-3">Clinic Hours</h3>
-                    <div className="space-y-1.5 w-full">
-                      {clinicHours.map((item, i) => (
-                        <div
-                          key={i}
-                          className={`flex items-center justify-between text-sm py-2 px-3 rounded-md gap-3 w-full ${
-                            item.day === today
-                              ? "bg-primary/10 dark:bg-primary/15 font-medium"
-                              : ""
-                          } ${item.hours === "Closed" ? "text-muted-foreground" : "text-foreground"}`}
-                          data-testid={`text-hours-${item.day.toLowerCase()}`}
-                        >
-                          <span className={`${item.day === today ? "text-primary font-semibold" : ""} whitespace-nowrap`}>
-                            {item.day}
-                            {item.day === today && (
-                              <span className="ml-1 text-[10px] uppercase tracking-wider text-primary">Today</span>
-                            )}
-                          </span>
-                          <span className="text-muted-foreground text-right text-xs sm:text-sm whitespace-nowrap">{item.hours}</span>
-                        </div>
-                      ))}
-                    </div>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-3 flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-primary" />
+                    Clinic Hours
+                  </h3>
+                  <div className="space-y-1.5 w-full">
+                    {clinicHours.map((item, i) => (
+                      <div
+                        key={i}
+                        className={`flex items-center justify-between text-sm py-2 px-3 rounded-md gap-3 w-full ${
+                          item.day === today
+                            ? "bg-primary/10 dark:bg-primary/15 font-medium"
+                            : ""
+                        } ${item.hours === "Closed" ? "text-muted-foreground" : "text-foreground"}`}
+                        data-testid={`text-hours-${item.day.toLowerCase()}`}
+                      >
+                        <span className={`${item.day === today ? "text-primary font-semibold" : ""} whitespace-nowrap`}>
+                          {item.day}
+                          {item.day === today && (
+                            <span className="ml-1 text-[10px] uppercase tracking-wider text-primary">Today</span>
+                          )}
+                        </span>
+                        <span className="text-muted-foreground text-right text-xs sm:text-sm whitespace-nowrap">{item.hours}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
