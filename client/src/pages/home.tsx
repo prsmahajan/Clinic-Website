@@ -124,17 +124,17 @@ function Navbar() {
       }`}
       data-testid="navbar"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-2 h-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between gap-1 sm:gap-2 h-16">
           <button
             onClick={() => scrollTo("hero")}
-            className="flex items-center gap-2 flex-shrink-0"
+            className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0 min-w-0"
             data-testid="link-logo"
           >
-            <div className="w-9 h-9 rounded-md bg-primary flex items-center justify-center">
-              <Stethoscope className="w-5 h-5 text-primary-foreground" />
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-md bg-primary flex items-center justify-center flex-shrink-0">
+              <Stethoscope className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
             </div>
-            <span className="font-semibold text-sm sm:text-base text-foreground">
+            <span className="font-semibold text-xs sm:text-base text-foreground truncate">
               Park View Clinic
             </span>
           </button>
@@ -229,7 +229,7 @@ function HeroSection() {
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+      <div className="relative max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-16 sm:py-28">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial="hidden"
@@ -296,7 +296,7 @@ function HeroSection() {
               </Button>
             </motion.div>
 
-            <motion.div variants={fadeInUp} className="mt-10 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
+            <motion.div variants={fadeInUp} className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4 sm:gap-6 text-xs sm:text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Award className="w-4 h-4 text-primary" />
                 <span>15+ Years Experience</span>
@@ -348,8 +348,8 @@ function HeroSection() {
 
 function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-card/50 dark:bg-card/30" data-testid="section-about">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-16 sm:py-20 bg-card/50 dark:bg-card/30" data-testid="section-about">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -405,8 +405,8 @@ function AboutSection() {
 
 function ServicesSection() {
   return (
-    <section id="services" className="py-20" data-testid="section-services">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-16 sm:py-20" data-testid="section-services">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -453,8 +453,8 @@ function ReviewsSection() {
   const marqueeItems = [...reviews, ...reviews];
 
   return (
-    <section id="reviews" className="py-20 bg-card/50 dark:bg-card/30" data-testid="section-reviews">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="reviews" className="py-16 sm:py-20 bg-card/50 dark:bg-card/30" data-testid="section-reviews">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -493,7 +493,7 @@ function ReviewsSection() {
             {marqueeItems.map((review, i) => (
               <Card
                 key={i}
-                className="w-[320px] sm:w-[380px] flex-shrink-0 p-6 sm:p-7"
+                className="w-[280px] sm:w-[380px] flex-shrink-0 p-5 sm:p-7"
                 data-testid={`card-review-${i % reviews.length}`}
               >
                 <div className="flex gap-0.5 mb-3">
@@ -519,7 +519,7 @@ function ReviewsSection() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="mt-8 text-center">
             <p className="text-xs text-muted-foreground italic max-w-lg mx-auto bg-muted/50 dark:bg-muted/30 rounded-lg px-4 py-3">
               Some patients have mentioned longer waiting times during peak hours. We continuously work to improve patient experience.
@@ -533,8 +533,8 @@ function ReviewsSection() {
 
 function WhyChooseSection() {
   return (
-    <section className="py-20" data-testid="section-why-choose">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 sm:py-20" data-testid="section-why-choose">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -580,8 +580,8 @@ function ClinicInfoSection() {
   const today = new Date().toLocaleDateString("en-US", { weekday: "long" });
 
   return (
-    <section id="clinic" className="py-20 bg-card/50 dark:bg-card/30" data-testid="section-clinic">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="clinic" className="py-16 sm:py-20 bg-card/50 dark:bg-card/30" data-testid="section-clinic">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -605,7 +605,7 @@ function ClinicInfoSection() {
           className="grid lg:grid-cols-2 gap-8"
         >
           <motion.div variants={fadeInUp}>
-            <Card className="p-6 sm:p-8 h-full">
+            <Card className="p-4 sm:p-8 h-full">
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -661,7 +661,7 @@ function ClinicInfoSection() {
                             <span className="ml-1 text-[10px] uppercase tracking-wider text-primary">Today</span>
                           )}
                         </span>
-                        <span className="text-muted-foreground text-right text-xs sm:text-sm whitespace-nowrap">{item.hours}</span>
+                        <span className="text-muted-foreground text-right text-[11px] sm:text-sm whitespace-nowrap">{item.hours}</span>
                       </div>
                     ))}
                   </div>
@@ -742,8 +742,8 @@ function AppointmentSection() {
   };
 
   return (
-    <section id="appointment" className="py-20" data-testid="section-appointment">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="appointment" className="py-16 sm:py-20" data-testid="section-appointment">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <motion.div
             initial="hidden"
@@ -794,7 +794,7 @@ function AppointmentSection() {
             viewport={{ once: true }}
             variants={fadeInUp}
           >
-            <Card className="p-6 sm:p-8">
+            <Card className="p-4 sm:p-8">
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
                   <FormField
@@ -902,8 +902,8 @@ function AppointmentSection() {
 
 function FAQSection() {
   return (
-    <section id="faq" className="py-20 bg-card/50 dark:bg-card/30" data-testid="section-faq">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-16 sm:py-20 bg-card/50 dark:bg-card/30" data-testid="section-faq">
+      <div className="max-w-3xl mx-auto px-3 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -951,8 +951,8 @@ function FAQSection() {
 function Footer() {
   return (
     <footer className="bg-foreground/[0.03] dark:bg-card/50 border-t border-border" data-testid="section-footer">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-10 sm:py-12">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-9 h-9 rounded-md bg-primary flex items-center justify-center">
