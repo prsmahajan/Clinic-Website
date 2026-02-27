@@ -643,24 +643,24 @@ function ClinicInfoSection() {
                   </div>
                   <div className="flex-1">
                     <h3 className="font-semibold text-foreground mb-3">Clinic Hours</h3>
-                    <div className="space-y-1.5">
+                    <div className="space-y-1.5 w-full">
                       {clinicHours.map((item, i) => (
                         <div
                           key={i}
-                          className={`grid grid-cols-[100px_1fr] sm:grid-cols-[120px_1fr] items-start text-sm py-2 px-3 rounded-md gap-2 ${
+                          className={`flex items-center justify-between text-sm py-2 px-3 rounded-md gap-3 w-full ${
                             item.day === today
                               ? "bg-primary/10 dark:bg-primary/15 font-medium"
                               : ""
                           } ${item.hours === "Closed" ? "text-muted-foreground" : "text-foreground"}`}
                           data-testid={`text-hours-${item.day.toLowerCase()}`}
                         >
-                          <span className={`${item.day === today ? "text-primary font-semibold" : ""} flex items-center flex-wrap`}>
+                          <span className={`${item.day === today ? "text-primary font-semibold" : ""} whitespace-nowrap`}>
                             {item.day}
                             {item.day === today && (
                               <span className="ml-1 text-[10px] uppercase tracking-wider text-primary">Today</span>
                             )}
                           </span>
-                          <span className="text-muted-foreground text-right text-xs sm:text-sm">{item.hours}</span>
+                          <span className="text-muted-foreground text-right text-xs sm:text-sm whitespace-nowrap">{item.hours}</span>
                         </div>
                       ))}
                     </div>
